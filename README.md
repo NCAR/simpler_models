@@ -4,14 +4,15 @@ CESM Simpler Models Configurations
 
 Notes
 -----
-* Please see Introduction.md for the overview of the simpler_models
+* Please see [Introduction.md](https://github.com/NCAR/simpler_models/blob/master/README.md) for the overview of the simpler_models
   repository and resources, including background information.
 * Documentation is maintained in the gh-pages branch. It is written in
-RST and converted to html using sphinx.
+RST and converted to html using sphinx. Here is the link to the [top of
+the documentation](http://ncar.github.io/simpler_models/doc/build/html/index.html).
 * Use the "Issues" github tab for discussion topics. Please use tags
 to identify the configuration that is relevant to your issue.
 * Note that at this point "simpler_models" is **not** a software
-  package. This respository may host some associated code, but the
+  package. This respository hosts some associated code, but the
   intention is to provide a "community center" for discussion and 
   documentation of the simpler model configurations for CESM.
 
