@@ -12,6 +12,14 @@ Documentation Pages for CESM Simpler Models
 
    simpler_configurations
 
+How to contribute
+=================
+We are drafting a process to outline how to contribute a new simpler
+model configuration. Please contribute an issue on the github site to
+provide input into that process.
+
+
+   
 Indices and tables
 ==================
 
