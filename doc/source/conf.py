@@ -95,11 +95,18 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 #
 # html_theme_options = {}
 
-#html_theme_options = {
-#    'collapse_navigation': False,
-#    'display_version': False,
-#    'navigation_depth': 3,
-#}
+if html_theme == 'alabaster':
+    html_theme_options = {
+    'logo': '_static/eos_fig_idea_v2.png',
+    'github_user': 'brianpm',
+    'github_repo': 'simpler_models',
+    }
+elif html_theme == 'sphinx_rtd_theme':
+    html_theme_options = {
+        'collapse_navigation': False,
+        'display_version': False,
+        'navigation_depth': 3,
+    }
     
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
