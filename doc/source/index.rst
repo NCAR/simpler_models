@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to simpler_models's documentation!
-==========================================
+Documentation Pages for CESM Simpler Models
+===========================================
 
 .. toctree::
    :maxdepth: 2
