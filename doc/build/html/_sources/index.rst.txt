@@ -11,6 +11,7 @@ Documentation Pages for CESM Simpler Models
    :caption: Contents:
 
    simpler_configurations
+   aqua_som_doc
 
 How to contribute
 =================
