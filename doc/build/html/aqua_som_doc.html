@@ -35,7 +35,8 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="simpler_models 0.1 documentation" href="index.html"/> 
+    <link rel="top" title="simpler_models 0.1 documentation" href="index.html"/>
+        <link rel="prev" title="Simpler Configurtions of CESM" href="simpler_configurations.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -82,12 +83,13 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="simpler_configurations.html">Simpler Configurtions of CESM</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="simpler_configurations.html#supported-configurations">Supported Configurations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simpler_configurations.html#configurations-in-development">Configurations In Development</a></li>
 </ul>
 </li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Aquaplanet Slab Ocean Model Documentation</a></li>
 </ul>
 
             
@@ -153,7 +155,7 @@
             
   <div class="section" id="aquaplanet-slab-ocean-model-documentation">
 <h1>Aquaplanet Slab Ocean Model Documentation<a class="headerlink" href="#aquaplanet-slab-ocean-model-documentation" title="Permalink to this headline">¶</a></h1>
-<p>The aquaplanet SOM default configuration differs slightly from the standard SOM. First, the sea ice is removed by default by specifying a stub ice model in the compset definition. Second, the slab ocean is given a uniform 30 m depth in the default forcing file, following the TRACMIP specification (<a class="reference external" href="http://dx.doi.org/10.1002/2016MS000748">Voigt et al., 2016</a>). Finally, the forcing file contains the bottom-of-the-slab Q-fluxes that are not computed from a fully-coupled simulation. Instead, the &#8220;test&#8221; cases contain a default forcing file with zero Q-fluxes; these may be replaced by user-defined forcing via the <code class="docutils literal"><span class="pre">DOCN_SOM_FILENAME</span></code> namelist variable. In the scientifically supported compsets, a default forcing file is used that contains Q-flux values computed from a prescribed SST aquaplanet. The method is from <a class="reference external" href="http://dx.doi.org/10.1175/JCLI3747.1">Kiehl et al. (2006)</a>, termed the &#8220;old way&#8221; in the <a class="reference external" href="http://www.cesm.ucar.edu/models/ccsm4.0/data8/SOM.pdf">SOM Forcing document</a>. The equation that is used to derive the Q-flux is</p>
+<p>The aquaplanet SOM default configuration differs slightly from the standard SOM. First, the sea ice is removed by default by specifying a stub ice model in the compset definition. Second, the slab ocean is given a uniform 30 m depth in the default forcing file, following the TRACMIP specification <a class="footnote-reference" href="#id3" id="id1">[1]</a>. Finally, the forcing file contains the bottom-of-the-slab Q-fluxes that are not computed from a fully-coupled simulation. Instead, the &#8220;test&#8221; cases (e.g., EC6AQUAPtest) contain a default forcing file with zero Q-fluxes; these may be replaced by user-defined forcing via the <code class="docutils literal"><span class="pre">DOCN_SOM_FILENAME</span></code> variable in the docn namelist. In the scientifically supported compsets (e.g., EC6AQUAP), a default forcing file is used that contains Q-flux values computed from a prescribed SST aquaplanet. The method is from Kiehl et al. (2006) <a class="footnote-reference" href="#id4" id="id2">[2]</a>, termed the &#8220;old way&#8221; in the <a class="reference external" href="http://www.cesm.ucar.edu/models/ccsm4.0/data8/SOM.pdf">SOM Forcing document</a>. The equation that is used to derive the Q-flux is</p>
 <div class="math">
 \[\rho c_p h \frac{\partial \mathrm{SST}}{\partial t} = F_{\mathrm{net}} + Q_{\mathrm{flx}}\]</div>
 <p>In the prescribed SST aquaplanet, however, the SST is constant, so the expression reduces to</p>
@@ -163,6 +165,18 @@
 <div class="math">
 \[-F_{\mathrm{net}} = Q_{\mathrm{flx}} = R_{\mathrm{net}} - H - L_vE - L_f \rho_{\mathrm{ice}} P_{\mathrm{ice}}\]</div>
 <p>where the rhs terms are the net downward radiative flux, the sensible heat flux, the latent heat flux, and the heat required to melt frozen precipitation, respectively.  The aquaplanet Q-flux is derived from monthly output from a 5-year simulation, then averaged over time and longitude. An NCL script to calculate the Q-flux is provided on the CESM Simpler Models github site.</p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Voigt, A. and T. A. Shaw, 2015: Circulation response to warming shaped by radiative changes of clouds and water vapour. Nature Geosci, 8 (2), 102–106, URL <a class="reference external" href="http://dx.doi.org/10.1038/ngeo2345">http://dx.doi.org/10.1038/ngeo2345</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Kiehl, J. T., C. A. Shields, J. J. Hack, and W. D. Collins, 2006: The climate sensitivity of the community climate system model version 3 (CCSM3). Journal of Climate, 19 (11), 2584–2596, doi:10.1175/JCLI3747.1, URL http://dx.doi.org/10.1175/JCLI3747.1.</td></tr>
+</tbody>
+</table>
 </div>
 
 
@@ -172,6 +186,13 @@
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="simpler_configurations.html" class="btn btn-neutral" title="Simpler Configurtions of CESM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

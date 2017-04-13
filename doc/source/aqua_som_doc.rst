@@ -2,7 +2,7 @@
 Aquaplanet Slab Ocean Model Documentation
 =========================================
 
-The aquaplanet SOM default configuration differs slightly from the standard SOM. First, the sea ice is removed by default by specifying a stub ice model in the compset definition. Second, the slab ocean is given a uniform 30 m depth in the default forcing file, following the TRACMIP specification (`Voigt et al., 2016`_). Finally, the forcing file contains the bottom-of-the-slab Q-fluxes that are not computed from a fully-coupled simulation. Instead, the "test" cases contain a default forcing file with zero Q-fluxes; these may be replaced by user-defined forcing via the ``DOCN_SOM_FILENAME`` namelist variable. In the scientifically supported compsets, a default forcing file is used that contains Q-flux values computed from a prescribed SST aquaplanet. The method is from `Kiehl et al. (2006)`_, termed the "old way" in the `SOM Forcing document`_. The equation that is used to derive the Q-flux is
+The aquaplanet SOM default configuration differs slightly from the standard SOM. First, the sea ice is removed by default by specifying a stub ice model in the compset definition. Second, the slab ocean is given a uniform 30 m depth in the default forcing file, following the TRACMIP specification [1]_. Finally, the forcing file contains the bottom-of-the-slab Q-fluxes that are not computed from a fully-coupled simulation. Instead, the "test" cases (e.g., EC6AQUAPtest) contain a default forcing file with zero Q-fluxes; these may be replaced by user-defined forcing via the ``DOCN_SOM_FILENAME`` variable in the docn namelist. In the scientifically supported compsets (e.g., EC6AQUAP), a default forcing file is used that contains Q-flux values computed from a prescribed SST aquaplanet. The method is from Kiehl et al. (2006) [2]_, termed the "old way" in the `SOM Forcing document`_. The equation that is used to derive the Q-flux is
 
 .. math::
   \rho c_p h \frac{\partial \mathrm{SST}}{\partial t} = F_{\mathrm{net}} + Q_{\mathrm{flx}}
@@ -26,3 +26,5 @@ where the rhs terms are the net downward radiative flux, the sensible heat flux,
 .. _SOM Forcing document: http://www.cesm.ucar.edu/models/ccsm4.0/data8/SOM.pdf
 
 
+.. [1] Voigt, A. and T. A. Shaw, 2015: Circulation response to warming shaped by radiative changes of clouds and water vapour. Nature Geosci, 8 (2), 102–106, URL http://dx.doi.org/10.1038/ngeo2345.
+.. [2] Kiehl, J. T., C. A. Shields, J. J. Hack, and W. D. Collins, 2006: The climate sensitivity of the community climate system model version 3 (CCSM3). Journal of Climate, 19 (11), 2584–2596, doi:10.1175/JCLI3747.1, URL http://dx.doi.org/10.1175/JCLI3747.1.
