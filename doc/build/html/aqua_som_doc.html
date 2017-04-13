@@ -155,7 +155,7 @@
             
   <div class="section" id="aquaplanet-slab-ocean-model-documentation">
 <h1>Aquaplanet Slab Ocean Model Documentation<a class="headerlink" href="#aquaplanet-slab-ocean-model-documentation" title="Permalink to this headline">¶</a></h1>
-<p>The aquaplanet SOM default configuration differs slightly from the standard SOM. First, the sea ice is removed by default by specifying a stub ice model in the compset definition. Second, the slab ocean is given a uniform 30 m depth in the default forcing file, following the TRACMIP specification <a class="footnote-reference" href="#id3" id="id1">[1]</a>. Finally, the forcing file contains the bottom-of-the-slab Q-fluxes that are not computed from a fully-coupled simulation. Instead, the &#8220;test&#8221; cases (e.g., EC6AQUAPtest) contain a default forcing file with zero Q-fluxes; these may be replaced by user-defined forcing via the <code class="docutils literal"><span class="pre">DOCN_SOM_FILENAME</span></code> variable in the docn namelist. In the scientifically supported compsets (e.g., EC6AQUAP), a default forcing file is used that contains Q-flux values computed from a prescribed SST aquaplanet. The method is from Kiehl et al. (2006) <a class="footnote-reference" href="#id4" id="id2">[2]</a>, termed the &#8220;old way&#8221; in the <a class="reference external" href="http://www.cesm.ucar.edu/models/ccsm4.0/data8/SOM.pdf">SOM Forcing document</a>. The equation that is used to derive the Q-flux is</p>
+<p>The aquaplanet SOM default configuration differs slightly from the standard SOM. First, the sea ice is removed by default by specifying a stub ice model in the compset definition. Second, the slab ocean is given a uniform 30 m depth in the default forcing file, following the TRACMIP specification <a class="footnote-reference" href="#id4" id="id1">[1]</a>. Finally, the forcing file contains the bottom-of-the-slab Q-fluxes that are not computed from a fully-coupled simulation. Instead, the &#8220;test&#8221; cases (e.g., EC6AQUAPtest) contain a default forcing file with zero Q-fluxes; these may be replaced by user-defined forcing via the <code class="docutils literal"><span class="pre">DOCN_SOM_FILENAME</span></code> variable in the docn namelist. In the scientifically supported compsets (e.g., EC6AQUAP), a default forcing file is used that contains Q-flux values computed from a prescribed SST aquaplanet. The method is from Kiehl et al. (2006) <a class="footnote-reference" href="#id5" id="id2">[2]</a>, termed the &#8220;old way&#8221; in the <a class="reference external" href="http://www.cesm.ucar.edu/models/ccsm4.0/data8/SOM.pdf">SOM Forcing document</a>. The equation that is used to derive the Q-flux is</p>
 <div class="math">
 \[\rho c_p h \frac{\partial \mathrm{SST}}{\partial t} = F_{\mathrm{net}} + Q_{\mathrm{flx}}\]</div>
 <p>In the prescribed SST aquaplanet, however, the SST is constant, so the expression reduces to</p>
@@ -165,16 +165,23 @@
 <div class="math">
 \[-F_{\mathrm{net}} = Q_{\mathrm{flx}} = R_{\mathrm{net}} - H - L_vE - L_f \rho_{\mathrm{ice}} P_{\mathrm{ice}}\]</div>
 <p>where the rhs terms are the net downward radiative flux, the sensible heat flux, the latent heat flux, and the heat required to melt frozen precipitation, respectively.  The aquaplanet Q-flux is derived from monthly output from a 5-year simulation, then averaged over time and longitude. An NCL script to calculate the Q-flux is provided on the <a class="reference external" href="https://github.com/NCAR/simpler_models">CESM Simpler Models</a> github site.</p>
-<table class="docutils footnote" frame="void" id="id3" rules="none">
+<p>Aspects of the simulated climate in the SOM Aquaplanet are documented by Benedict et al. <a class="footnote-reference" href="#id6" id="id3">[3]</a>.</p>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Voigt, A., et al., 2016: The tropical rain belts with an annual cycle and a continent model intercom- parison project: TRACMIP. Journal of Advances in Modeling Earth Systems, 8 (4), 1868–1891, doi: 10.1002/2016MS000748, URL <a class="reference external" href="http://dx.doi.org/10.1002/2016MS000748">http://dx.doi.org/10.1002/2016MS000748</a>.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id4" rules="none">
+<table class="docutils footnote" frame="void" id="id5" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Kiehl, J. T., C. A. Shields, J. J. Hack, and W. D. Collins, 2006: The climate sensitivity of the community climate system model version 3 (CCSM3). Journal of Climate, 19 (11), 2584–2596, doi:10.1175/JCLI3747.1, URL http://dx.doi.org/10.1175/JCLI3747.1.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Benedict, J. J., B. Medeiros, A. C. Clement, and A. Pendergrass, 2017: Sensitivities of the Hydrologic Cycle to Model Physics, Grid Resolution, and Ocean Type in the Aquaplanet Community Atmosphere Model. Journal of Advances in Modeling Earth Systems, <em>submitted</em>.</td></tr>
 </tbody>
 </table>
 </div>
