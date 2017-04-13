@@ -19,6 +19,8 @@ so the Q-flux is the inverse of the net ocean surface energy budget, which can b
 
 where the rhs terms are the net downward radiative flux, the sensible heat flux, the latent heat flux, and the heat required to melt frozen precipitation, respectively.  The aquaplanet Q-flux is derived from monthly output from a 5-year simulation, then averaged over time and longitude. An NCL script to calculate the Q-flux is provided on the `CESM Simpler Models`_ github site.
 
+Other variables in the SOM forcing file are set to zero (e.g., U, V), global average values (e.g., S), or to aquaplanet-appropriate values (e.g., mask = 1 everywhere). 
+
 Aspects of the simulated climate in the SOM Aquaplanet are documented by Benedict et al. [3]_.
 
 
