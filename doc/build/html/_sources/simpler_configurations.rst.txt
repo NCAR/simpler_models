@@ -1,5 +1,5 @@
-Simpler Configurtions of CESM
-=============================
+Simpler Configurations of CESM
+==============================
 
 
 There is currently a two-tier structure for support of "simpler" confgurations of CESM: fully supported and *in development*. 
