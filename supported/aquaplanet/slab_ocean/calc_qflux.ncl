@@ -9,7 +9,7 @@ begin
   copy_VarCoords( FSNS, qflux ) ;; works even if there are no coords
   qflux@long_name = "derived qflux based on surface energy budget"
   qflux@units = "W m-2"
-  return(Fnet)  
+  return(qflux)  
 end
 
 
