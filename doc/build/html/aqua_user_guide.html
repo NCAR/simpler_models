@@ -169,57 +169,59 @@ Model, and the number is the physics package that is used (i.e., CAM4, CAM5,
 CAM6).</p>
 <div class="section" id="example-1-default-aquaplanet-with-prescribed-sst">
 <h2>Example 1: Default Aquaplanet with prescribed SST<a class="headerlink" href="#example-1-default-aquaplanet-with-prescribed-sst" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>To run the standard CAM6 aquaplanet, simply supply the compset name::</dt>
-<dd>cd cime/scripts
-./create_newcase &#8211;case aqua_case &#8211;compset QPC6 &#8211;res f09_f09_mg17
-cd aqua_case
-./case.setup
-./case.build
-./case.submit</dd>
-</dl>
+<p>To run the standard CAM6 aquaplanet, simply supply the compset name:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QPC6</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
+<span class="n">cd</span> <span class="n">aqua_case</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
+</pre></div>
+</div>
 <p>By default initial conditions from a previous aquaplanet simulation are used. The SST pattern is the APE &#8220;QOBS&#8221; option, which is used in APE and CFMIP protocols. The atmospheric ozone is specified to be that used for APE. Aerosol emissions are neglected except for sea salt (which is diagnostic), see Medeiros et al. <a class="reference internal" href="#mwo" id="id3">[MWO]</a> for details.</p>
 </div>
 <div class="section" id="example-2-default-aquaplanet-with-slab-ocean-model">
 <h2>Example 2: Default Aquaplanet with Slab-Ocean Model<a class="headerlink" href="#example-2-default-aquaplanet-with-slab-ocean-model" title="Permalink to this headline">¶</a></h2>
+<p>To run the standard CAM6 aquaplanet with a 30 m uniform slab-ocean, simply supply the compset name:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QSC6</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span>
+<span class="n">cd</span> <span class="n">aqua_case</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
+</pre></div>
+</div>
 <dl class="docutils">
-<dt>To run the standard CAM6 aquaplanet with a 30 m uniform slab-ocean, simply supply the compset name::</dt>
-<dd>cd cime/scripts
-./create_newcase &#8211;case aqua_case &#8211;compset QSC6 &#8211;res f09_f09_mg17
-cd aqua_case
-./case.setup
-./case.build
-./case.submit</dd>
 <dt>Note that the slab-ocean model has no ocean heat transport by default; the user must specify an appropriate &#8220;qflux&#8221; file. To specify such a file::</dt>
 <dd>./xmlchange &#8211;file env_run.xml &#8211;id DOCN_SOM_FILENAME &#8211;val path/to/file.nc</dd>
 </dl>
 </div>
 <div class="section" id="example-3-aquaplanet-with-alternate-prescribed-sst">
 <h2>Example 3: Aquaplanet with alternate prescribed SST<a class="headerlink" href="#example-3-aquaplanet-with-alternate-prescribed-sst" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>All of the APE SST profiles are available. To use them invoke the long compset name with the user compset option::</dt>
-<dd>cd cime/scripts
-./create_newcase &#8211;case cam5_3keq &#8211;compset 2000_CAM50_SLND_SICE_DOCN%AQP7_SROF_SGLC_SWAV &#8211;user-compset &#8211;res f09_f09_mg17 &#8211;run-unsupported
-cd cam5_3keq
-./case.setup
-./case.build
-./case.submit</dd>
-</dl>
+<p>All of the APE SST profiles are available. To use them invoke the long compset name with the user compset option:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">cam5_3keq</span> <span class="o">--</span><span class="n">compset</span> <span class="mi">2000</span><span class="n">_CAM50_SLND_SICE_DOCN</span><span class="o">%</span><span class="n">AQP7_SROF_SGLC_SWAV</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">compset</span> <span class="o">--</span><span class="n">res</span> <span class="n">f09_f09_mg17</span> <span class="o">--</span><span class="n">run</span><span class="o">-</span><span class="n">unsupported</span>
+<span class="n">cd</span> <span class="n">cam5_3keq</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
+</pre></div>
+</div>
 <p>The example uses the 3KEQ SST pattern, which is specified with &#8220;AQP7&#8221; in the compset name. Also note this example switched to CAM5 physics by specifying &#8220;CAM50&#8221; in the compset name. The run-unsupported flag is required.</p>
 </div>
 <div class="section" id="example-4-aquaplanet-with-user-specified-sst-dataset">
 <h2>Example 4: Aquaplanet with user-specified SST dataset<a class="headerlink" href="#example-4-aquaplanet-with-user-specified-sst-dataset" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>An arbitrary SST dataset can be specified instead of the default APE SST. To do that, start with the default case, and then change the data ocean mode and specify the file::</dt>
-<dd>cd cime/scripts
-./create_newcase &#8211;case aqua_sst_case &#8211;compset QPC4 &#8211;res f19_f19_mg17
-cd aqua_case &#8211;run-unsupported
-./case.setup
-./xmlchange &#8211;file env_run.xml &#8211;id DOCN_MODE &#8211;val sst_aquapfile
-./xmlchange &#8211;file env_run.xml &#8211;id DOCN_AQP_FILENAME &#8211;val sst.nc
-./case.build
-./case.submit</dd>
-</dl>
+<p>An arbitrary SST dataset can be specified instead of the default APE SST. To do that, start with the default case, and then change the data ocean mode and specify the file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">cime</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">./</span><span class="n">create_newcase</span> <span class="o">--</span><span class="n">case</span> <span class="n">aqua_sst_case</span> <span class="o">--</span><span class="n">compset</span> <span class="n">QPC4</span> <span class="o">--</span><span class="n">res</span> <span class="n">f19_f19_mg17</span>
+<span class="n">cd</span> <span class="n">aqua_case</span> <span class="o">--</span><span class="n">run</span><span class="o">-</span><span class="n">unsupported</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">setup</span>
+<span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">file</span> <span class="n">env_run</span><span class="o">.</span><span class="n">xml</span> <span class="o">--</span><span class="nb">id</span> <span class="n">DOCN_MODE</span> <span class="o">--</span><span class="n">val</span> <span class="n">sst_aquapfile</span>
+<span class="o">./</span><span class="n">xmlchange</span> <span class="o">--</span><span class="n">file</span> <span class="n">env_run</span><span class="o">.</span><span class="n">xml</span> <span class="o">--</span><span class="nb">id</span> <span class="n">DOCN_AQP_FILENAME</span> <span class="o">--</span><span class="n">val</span> <span class="n">sst</span><span class="o">.</span><span class="n">nc</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">build</span>
+<span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
+</pre></div>
+</div>
 <p>Where sst.nc is the user-supplied SST file, which follows the same conventions as SST files used for F compsets. Note this example swtiches to CAM4 physics on a 2-degree grid, so requires the run-unsupported flag.</p>
 <table class="docutils citation" frame="void" id="mwo" rules="none">
 <colgroup><col class="label" /><col /></colgroup>

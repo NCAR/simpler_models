@@ -20,6 +20,7 @@ CAM6).
 Example 1: Default Aquaplanet with prescribed SST
 -----------------------------------------------------------
 To run the standard CAM6 aquaplanet, simply supply the compset name::
+
   cd cime/scripts
   ./create_newcase --case aqua_case --compset QPC6 --res f09_f09_mg17
   cd aqua_case
@@ -32,6 +33,7 @@ By default initial conditions from a previous aquaplanet simulation are used. Th
 Example 2: Default Aquaplanet with Slab-Ocean Model
 -----------------------------------------------------------
 To run the standard CAM6 aquaplanet with a 30 m uniform slab-ocean, simply supply the compset name::
+
   cd cime/scripts
   ./create_newcase --case aqua_case --compset QSC6 --res f09_f09_mg17
   cd aqua_case
@@ -46,6 +48,7 @@ Note that the slab-ocean model has no ocean heat transport by default; the user 
 Example 3: Aquaplanet with alternate prescribed SST
 -----------------------------------------------------------
 All of the APE SST profiles are available. To use them invoke the long compset name with the user compset option::
+
   cd cime/scripts
   ./create_newcase --case cam5_3keq --compset 2000_CAM50_SLND_SICE_DOCN%AQP7_SROF_SGLC_SWAV --user-compset --res f09_f09_mg17 --run-unsupported
   cd cam5_3keq
@@ -58,6 +61,7 @@ The example uses the 3KEQ SST pattern, which is specified with "AQP7" in the com
 Example 4: Aquaplanet with user-specified SST dataset
 -----------------------------------------------------------
 An arbitrary SST dataset can be specified instead of the default APE SST. To do that, start with the default case, and then change the data ocean mode and specify the file::
+
   cd cime/scripts
   ./create_newcase --case aqua_sst_case --compset QPC4 --res f19_f19_mg17
   cd aqua_case --run-unsupported
@@ -66,6 +70,7 @@ An arbitrary SST dataset can be specified instead of the default APE SST. To do 
   ./xmlchange --file env_run.xml --id DOCN_AQP_FILENAME --val sst.nc
   ./case.build
   ./case.submit
+  
 Where sst.nc is the user-supplied SST file, which follows the same conventions as SST files used for F compsets. Note this example swtiches to CAM4 physics on a 2-degree grid, so requires the run-unsupported flag.
 
 
