@@ -178,7 +178,7 @@ CAM6).</p>
 <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
 </pre></div>
 </div>
-<p>By default initial conditions from a previous aquaplanet simulation are used. The SST pattern is the APE &#8220;QOBS&#8221; option, which is used in APE and CFMIP protocols. The atmospheric ozone is specified to be that used for APE. Aerosol emissions are neglected except for sea salt (which is diagnostic), see Medeiros et al. <a class="reference internal" href="#mwo" id="id3">[MWO]</a> for details.</p>
+<p>By default initial conditions from a previous aquaplanet simulation are used. The SST pattern is the APE “QOBS” option, which is used in APE and CFMIP protocols. The atmospheric ozone is specified to be that used for APE. Aerosol emissions are neglected except for sea salt (which is diagnostic), see Medeiros et al. <a class="reference internal" href="#mwo" id="id3">[MWO]</a> for details.</p>
 </div>
 <div class="section" id="example-2-default-aquaplanet-with-slab-ocean-model">
 <h2>Example 2: Default Aquaplanet with Slab-Ocean Model<a class="headerlink" href="#example-2-default-aquaplanet-with-slab-ocean-model" title="Permalink to this headline">¶</a></h2>
@@ -192,8 +192,8 @@ CAM6).</p>
 </pre></div>
 </div>
 <dl class="docutils">
-<dt>Note that the slab-ocean model has no ocean heat transport by default; the user must specify an appropriate &#8220;qflux&#8221; file. To specify such a file::</dt>
-<dd>./xmlchange &#8211;file env_run.xml &#8211;id DOCN_SOM_FILENAME &#8211;val path/to/file.nc</dd>
+<dt>Note that the slab-ocean model has no ocean heat transport by default; the user must specify an appropriate “qflux” file. To specify such a file::</dt>
+<dd>./xmlchange –file env_run.xml –id DOCN_SOM_FILENAME –val path/to/file.nc</dd>
 </dl>
 </div>
 <div class="section" id="example-3-aquaplanet-with-alternate-prescribed-sst">
@@ -207,7 +207,7 @@ CAM6).</p>
 <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
 </pre></div>
 </div>
-<p>The example uses the 3KEQ SST pattern, which is specified with &#8220;AQP7&#8221; in the compset name. Also note this example switched to CAM5 physics by specifying &#8220;CAM50&#8221; in the compset name. The run-unsupported flag is required.</p>
+<p>The example uses the 3KEQ SST pattern, which is specified with “AQP7” in the compset name. Also note this example switched to CAM5 physics by specifying “CAM50” in the compset name. The run-unsupported flag is required.</p>
 </div>
 <div class="section" id="example-4-aquaplanet-with-user-specified-sst-dataset">
 <h2>Example 4: Aquaplanet with user-specified SST dataset<a class="headerlink" href="#example-4-aquaplanet-with-user-specified-sst-dataset" title="Permalink to this headline">¶</a></h2>
@@ -289,7 +289,7 @@ CAM6).</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
