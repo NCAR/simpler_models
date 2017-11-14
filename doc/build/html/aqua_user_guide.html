@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Aquaplanet User Guide (QP and QS compsets) &mdash; simpler_models 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="simpler_models 0.1 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> simpler_models
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="simpler_configurations.html">Simpler Configurations of CESM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="simpler_configurations.html#supported-configurations">Supported Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simpler_configurations.html#configurations-in-development">Configurations In Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aqua_som_doc.html">Aquaplanet Slab Ocean Model Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">simpler_models</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Aquaplanet User Guide (QP and QS compsets)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/aqua_user_guide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aquaplanet-user-guide-qp-and-qs-compsets">
+<h1>Aquaplanet User Guide (QP and QS compsets)<a class="headerlink" href="#aquaplanet-user-guide-qp-and-qs-compsets" title="Permalink to this headline">¶</a></h1>
+<p>Aquaplanets are configurations of global atmospheric models that have no landmasses and saturated lower boundaries. The aquaplanet compsets in CESM2 provide a convenient way to configure CAM with prescribed, zonally symmetric SST, a user-supplied SST dataset, or a slab-ocean lower boundary. The surface is controlled through the data ocean model. There are a standard set based on the AquaPlanet Experiment project (APE; Neale &amp; Hoskins <a class="reference internal" href="#nh" id="id1">[NH]</a>, Williamson et al. <a class="reference internal" href="#w" id="id2">[W]</a>). The advantage of an aquaplanet configuration is that it allows the user to run the full CAM parameterization suite while retaining much simpler surface conditions than the complex combintation of land, ocean and sea-ice seen in the real world.  The CAM5 aquaplanet configuration is described by Medeiros et al.[MWO]_</p>
+<p>There are six Q compsets available in CESM2:</p>
+<ul class="simple">
+<li>QPC6</li>
+<li>QPC5</li>
+<li>QPC4</li>
+<li>QSC6</li>
+<li>QSC5</li>
+<li>QSC4</li>
+</ul>
+<p>where the P stands for Prescribed SST and the S stands for Slab-Ocean
+Model, and the number is the physics package that is used (i.e., CAM4, CAM5,
+CAM6).</p>
+<div class="section" id="example-1-default-aquaplanet-with-prescribed-sst">
+<h2>Example 1: Default Aquaplanet with prescribed SST<a class="headerlink" href="#example-1-default-aquaplanet-with-prescribed-sst" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>To run the standard CAM6 aquaplanet, simply supply the compset name::</dt>
+<dd>cd cime/scripts
+./create_newcase &#8211;case aqua_case &#8211;compset QPC6 &#8211;res f09_f09_mg17
+cd aqua_case
+./case.setup
+./case.build
+./case.submit</dd>
+</dl>
+<p>By default initial conditions from a previous aquaplanet simulation are used. The SST pattern is the APE &#8220;QOBS&#8221; option, which is used in APE and CFMIP protocols. The atmospheric ozone is specified to be that used for APE. Aerosol emissions are neglected except for sea salt (which is diagnostic), see Medeiros et al. <a class="reference internal" href="#mwo" id="id3">[MWO]</a> for details.</p>
+</div>
+<div class="section" id="example-2-default-aquaplanet-with-slab-ocean-model">
+<h2>Example 2: Default Aquaplanet with Slab-Ocean Model<a class="headerlink" href="#example-2-default-aquaplanet-with-slab-ocean-model" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>To run the standard CAM6 aquaplanet with a 30 m uniform slab-ocean, simply supply the compset name::</dt>
+<dd>cd cime/scripts
+./create_newcase &#8211;case aqua_case &#8211;compset QSC6 &#8211;res f09_f09_mg17
+cd aqua_case
+./case.setup
+./case.build
+./case.submit</dd>
+<dt>Note that the slab-ocean model has no ocean heat transport by default; the user must specify an appropriate &#8220;qflux&#8221; file. To specify such a file::</dt>
+<dd>./xmlchange &#8211;file env_run.xml &#8211;id DOCN_SOM_FILENAME &#8211;val path/to/file.nc</dd>
+</dl>
+</div>
+<div class="section" id="example-3-aquaplanet-with-alternate-prescribed-sst">
+<h2>Example 3: Aquaplanet with alternate prescribed SST<a class="headerlink" href="#example-3-aquaplanet-with-alternate-prescribed-sst" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>All of the APE SST profiles are available. To use them invoke the long compset name with the user compset option::</dt>
+<dd>cd cime/scripts
+./create_newcase &#8211;case cam5_3keq &#8211;compset 2000_CAM50_SLND_SICE_DOCN%AQP7_SROF_SGLC_SWAV &#8211;user-compset &#8211;res f09_f09_mg17 &#8211;run-unsupported
+cd cam5_3keq
+./case.setup
+./case.build
+./case.submit</dd>
+</dl>
+<p>The example uses the 3KEQ SST pattern, which is specified with &#8220;AQP7&#8221; in the compset name. Also note this example switched to CAM5 physics by specifying &#8220;CAM50&#8221; in the compset name. The run-unsupported flag is required.</p>
+</div>
+<div class="section" id="example-4-aquaplanet-with-user-specified-sst-dataset">
+<h2>Example 4: Aquaplanet with user-specified SST dataset<a class="headerlink" href="#example-4-aquaplanet-with-user-specified-sst-dataset" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>An arbitrary SST dataset can be specified instead of the default APE SST. To do that, start with the default case, and then change the data ocean mode and specify the file::</dt>
+<dd>cd cime/scripts
+./create_newcase &#8211;case aqua_sst_case &#8211;compset QPC4 &#8211;res f19_f19_mg17
+cd aqua_case &#8211;run-unsupported
+./case.setup
+./xmlchange &#8211;file env_run.xml &#8211;id DOCN_MODE &#8211;val sst_aquapfile
+./xmlchange &#8211;file env_run.xml &#8211;id DOCN_AQP_FILENAME &#8211;val sst.nc
+./case.build
+./case.submit</dd>
+</dl>
+<p>Where sst.nc is the user-supplied SST file, which follows the same conventions as SST files used for F compsets. Note this example swtiches to CAM4 physics on a 2-degree grid, so requires the run-unsupported flag.</p>
+<table class="docutils citation" frame="void" id="mwo" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[MWO]</a></td><td>Medeiros, B., D. L. Williamson, and J. G. Olson, 2016: Reference aquaplanet climate in the com- munity atmosphere model, version 5. Journal of Advances in Modeling Earth Systems, doi: 10.1002/2015MS000593</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="nh" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[NH]</a></td><td>Neale, R. B. and B. J. Hoskins, 2000a: A standard test for AGCMs including their physical parametrizations. I: The proposal. Atmos. Sci. Lett., 1, 101-107.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="w" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[W]</a></td><td>David L. Williamson and Co-Authors, 2012: The APE Atlas. Technical report, National Center for Atmospheric Research. URL <a class="reference external" href="http://nldr.library.ucar.edu/repository/collections/TECH-NOTE-000-000-000-865">http://nldr.library.ucar.edu/repository/collections/TECH-NOTE-000-000-000-865</a>.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Brian Medeiros.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
