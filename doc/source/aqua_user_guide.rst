@@ -1,16 +1,16 @@
 Aquaplanet User Guide (QP and QS compsets)
 ==========================================
 
-Aquaplanets are configurations of global atmospheric models that have no landmasses and saturated lower boundaries. The aquaplanet compsets in CESM2 provide a convenient way to configure CAM with prescribed, zonally symmetric SST, a user-supplied SST dataset, or a slab-ocean lower boundary. The surface is controlled through the data ocean model. There are a standard set based on the AquaPlanet Experiment project (APE; Neale & Hoskins [NH]_, Williamson et al. [W]_). The advantage of an aquaplanet configuration is that it allows the user to run the full CAM parameterization suite while retaining much simpler surface conditions than the complex combination of land, ocean, and sea-ice in the real world.  The CAM5 aquaplanet configuration is described by Medeiros et al. [MWO]_
+Aquaplanets are configurations of global atmospheric models that have no landmasses and saturated lower boundaries. The aquaplanet compsets in CESM2 provide a convenient way to configure CAM with prescribed, zonally symmetric SST, a user-supplied SST dataset, or a slab-ocean lower boundary. The surface is controlled through the data ocean model. There are a standard set of SST profiles based on the AquaPlanet Experiment project (APE; Neale & Hoskins [NH]_, Williamson et al. [W]_). The advantage of an aquaplanet configuration is that it allows the user to run the full CAM parameterization suite while retaining much simpler surface conditions than the complex combination of land, ocean, and sea-ice in the real world.  The CAM5 aquaplanet configuration is described by Medeiros et al. [MWO]_
 
 There are six Q compsets available in CESM2:
 
-* QPC6
-* QPC5
-* QPC4
-* QSC6
-* QSC5
-* QSC4
+* QPC6 (scientifically supported)
+* QPC5 (scientifically supported)
+* QPC4 (requres run-unsupported)
+* QSC6 (requres run-unsupported)
+* QSC5 (requres run-unsupported)
+* QSC4 (requres run-unsupported)
 
 where the P stands for Prescribed SST and the S stands for Slab-Ocean
 Model, and the number is the physics package that is used (i.e., CAM4, CAM5,
@@ -57,7 +57,7 @@ All of the APE SST profiles are available. To use them invoke the long compset n
   ./case.build
   ./case.submit
 
-The example uses the 3KEQ SST pattern, which is specified with "AQP7" in the compset name. Also note this example switched to CAM5 physics by specifying "CAM50" in the compset name. The run-unsupported flag is required.
+The example uses the 3KEQ SST pattern, which is specified with "AQP7" in the compset name. The analytical SST profiles are defined in the source code (cime/src/components/data_comps/docn/docn_comp_mod.F90). Also note this example switched to CAM5 physics by specifying "CAM50" in the compset name. The run-unsupported flag is required.
 
 Example 4: Aquaplanet with user-specified SST dataset
 -----------------------------------------------------------
@@ -75,8 +75,8 @@ An arbitrary SST dataset can be specified instead of the default APE SST. To do 
 Where sst.nc is the user-supplied SST file, which follows the same conventions as SST files used for F compsets. Note this example swtiches to CAM4 physics on a 2-degree grid, so requires the run-unsupported flag.
 
 
-.. [MWO] Medeiros, B., D. L. Williamson, and J. G. Olson, 2016: Reference aquaplanet climate in the com- munity atmosphere model, version 5. Journal of Advances in Modeling Earth Systems, doi: 10.1002/2015MS000593
+.. [MWO] Medeiros, B., D. L. Williamson, and J. G. Olson, 2016: Reference aquaplanet climate in the com- munity atmosphere model, version 5. Journal of Advances in Modeling Earth Systems, URL http://dx.doi.org/10.1002/2015MS000593
 
-.. [NH] Neale, R. B. and B. J. Hoskins, 2000a: A standard test for AGCMs including their physical parametrizations. I: The proposal. Atmos. Sci. Lett., 1, 101-107.
+.. [NH] Neale, R. B. and B. J. Hoskins, 2000a: A standard test for AGCMs including their physical parametrizations. I: The proposal. Atmos. Sci. Lett., 1, 101-107. URL: http://dx.doi.org/10.1006/asle.2000.0022
 
-.. [W] David L. Williamson and Co-Authors, 2012: The APE Atlas. Technical report, National Center for Atmospheric Research. URL http://nldr.library.ucar.edu/repository/collections/TECH-NOTE-000-000-000-865.
+.. [W] David L. Williamson and Co-Authors, 2012: The APE Atlas. Technical report, National Center for Atmospheric Research. URL http://dx.doi.org/doi:10.5065/D6FF3QBR.

@@ -154,15 +154,15 @@
             
   <div class="section" id="aquaplanet-user-guide-qp-and-qs-compsets">
 <h1>Aquaplanet User Guide (QP and QS compsets)<a class="headerlink" href="#aquaplanet-user-guide-qp-and-qs-compsets" title="Permalink to this headline">¶</a></h1>
-<p>Aquaplanets are configurations of global atmospheric models that have no landmasses and saturated lower boundaries. The aquaplanet compsets in CESM2 provide a convenient way to configure CAM with prescribed, zonally symmetric SST, a user-supplied SST dataset, or a slab-ocean lower boundary. The surface is controlled through the data ocean model. There are a standard set based on the AquaPlanet Experiment project (APE; Neale &amp; Hoskins <a class="reference internal" href="#nh" id="id1">[NH]</a>, Williamson et al. <a class="reference internal" href="#w" id="id2">[W]</a>). The advantage of an aquaplanet configuration is that it allows the user to run the full CAM parameterization suite while retaining much simpler surface conditions than the complex combination of land, ocean, and sea-ice in the real world.  The CAM5 aquaplanet configuration is described by Medeiros et al. <a class="reference internal" href="#mwo" id="id3">[MWO]</a></p>
+<p>Aquaplanets are configurations of global atmospheric models that have no landmasses and saturated lower boundaries. The aquaplanet compsets in CESM2 provide a convenient way to configure CAM with prescribed, zonally symmetric SST, a user-supplied SST dataset, or a slab-ocean lower boundary. The surface is controlled through the data ocean model. There are a standard set of SST profiles based on the AquaPlanet Experiment project (APE; Neale &amp; Hoskins <a class="reference internal" href="#nh" id="id1">[NH]</a>, Williamson et al. <a class="reference internal" href="#w" id="id2">[W]</a>). The advantage of an aquaplanet configuration is that it allows the user to run the full CAM parameterization suite while retaining much simpler surface conditions than the complex combination of land, ocean, and sea-ice in the real world.  The CAM5 aquaplanet configuration is described by Medeiros et al. <a class="reference internal" href="#mwo" id="id3">[MWO]</a></p>
 <p>There are six Q compsets available in CESM2:</p>
 <ul class="simple">
-<li>QPC6</li>
-<li>QPC5</li>
-<li>QPC4</li>
-<li>QSC6</li>
-<li>QSC5</li>
-<li>QSC4</li>
+<li>QPC6 (scientifically supported)</li>
+<li>QPC5 (scientifically supported)</li>
+<li>QPC4 (requres run-unsupported)</li>
+<li>QSC6 (requres run-unsupported)</li>
+<li>QSC5 (requres run-unsupported)</li>
+<li>QSC4 (requres run-unsupported)</li>
 </ul>
 <p>where the P stands for Prescribed SST and the S stands for Slab-Ocean
 Model, and the number is the physics package that is used (i.e., CAM4, CAM5,
@@ -207,7 +207,7 @@ CAM6).</p>
 <span class="o">./</span><span class="n">case</span><span class="o">.</span><span class="n">submit</span>
 </pre></div>
 </div>
-<p>The example uses the 3KEQ SST pattern, which is specified with “AQP7” in the compset name. Also note this example switched to CAM5 physics by specifying “CAM50” in the compset name. The run-unsupported flag is required.</p>
+<p>The example uses the 3KEQ SST pattern, which is specified with “AQP7” in the compset name. The analytical SST profiles are defined in the source code (cime/src/components/data_comps/docn/docn_comp_mod.F90). Also note this example switched to CAM5 physics by specifying “CAM50” in the compset name. The run-unsupported flag is required.</p>
 </div>
 <div class="section" id="example-4-aquaplanet-with-user-specified-sst-dataset">
 <h2>Example 4: Aquaplanet with user-specified SST dataset<a class="headerlink" href="#example-4-aquaplanet-with-user-specified-sst-dataset" title="Permalink to this headline">¶</a></h2>
@@ -226,19 +226,19 @@ CAM6).</p>
 <table class="docutils citation" frame="void" id="mwo" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[MWO]</td><td><em>(<a class="fn-backref" href="#id3">1</a>, <a class="fn-backref" href="#id4">2</a>)</em> Medeiros, B., D. L. Williamson, and J. G. Olson, 2016: Reference aquaplanet climate in the com- munity atmosphere model, version 5. Journal of Advances in Modeling Earth Systems, doi: 10.1002/2015MS000593</td></tr>
+<tr><td class="label">[MWO]</td><td><em>(<a class="fn-backref" href="#id3">1</a>, <a class="fn-backref" href="#id4">2</a>)</em> Medeiros, B., D. L. Williamson, and J. G. Olson, 2016: Reference aquaplanet climate in the com- munity atmosphere model, version 5. Journal of Advances in Modeling Earth Systems, URL <a class="reference external" href="http://dx.doi.org/10.1002/2015MS000593">http://dx.doi.org/10.1002/2015MS000593</a></td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="nh" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[NH]</a></td><td>Neale, R. B. and B. J. Hoskins, 2000a: A standard test for AGCMs including their physical parametrizations. I: The proposal. Atmos. Sci. Lett., 1, 101-107.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[NH]</a></td><td>Neale, R. B. and B. J. Hoskins, 2000a: A standard test for AGCMs including their physical parametrizations. I: The proposal. Atmos. Sci. Lett., 1, 101-107. URL: <a class="reference external" href="http://dx.doi.org/10.1006/asle.2000.0022">http://dx.doi.org/10.1006/asle.2000.0022</a></td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="w" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[W]</a></td><td>David L. Williamson and Co-Authors, 2012: The APE Atlas. Technical report, National Center for Atmospheric Research. URL <a class="reference external" href="http://nldr.library.ucar.edu/repository/collections/TECH-NOTE-000-000-000-865">http://nldr.library.ucar.edu/repository/collections/TECH-NOTE-000-000-000-865</a>.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id2">[W]</a></td><td>David L. Williamson and Co-Authors, 2012: The APE Atlas. Technical report, National Center for Atmospheric Research. URL <a class="reference external" href="http://dx.doi.org/doi:10.5065/D6FF3QBR">http://dx.doi.org/doi:10.5065/D6FF3QBR</a>.</td></tr>
 </tbody>
 </table>
 </div>
